@@ -1,6 +1,6 @@
 ---
 name: Component Request
-about: Propose Remix Component
+about: Propose React/Remix Component
 title: Component
 labels: Component
 assignees: ''
