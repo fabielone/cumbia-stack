@@ -8,10 +8,14 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useMatches,
 } from "@remix-run/react";
 
+import Footer from "~/comp/Footer";
 import { getUser } from "~/session.server";
 import stylesheet from "~/tailwind.css";
+
+import Header from "./comp/atom/Header";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -23,6 +27,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export default function App() {
+  const route = useMatches()[1];
   return (
     <html lang="en" className="h-full">
       <head>
@@ -32,11 +37,39 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <Outlet />
+        {route.pathname.includes("dashboard") ? 
+      
+        <DashboardLayout>
+          <Outlet />
+        </DashboardLayout>
+        :
+        <MainLayout>
+          <Outlet />
+        </MainLayout>
+      
+      }
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
       </body>
     </html>
   );
+}
+
+// define MainLayout component
+
+export function MainLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+    <Header/>
+    {children}
+    <Footer/>
+    </>
+  );
+}
+
+// define empty DashboardLayout component
+
+export function DashboardLayout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }

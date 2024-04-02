@@ -1,8 +1,10 @@
 // menuConfig.ts
 import React from "react";
 import { IoIosCloseCircleOutline, IoIosCall } from "react-icons/io";
+import { FaFacebook,FaInstagramSquare,FaTiktok,FaPhone,FaWhatsappSquare  } from "react-icons/fa";
+
 import { IoMenuSharp } from "react-icons/io5";
-import { MdOutlineDesignServices } from "react-icons/md";
+import { MdOutlineDesignServices, MdEmail } from "react-icons/md";
 
 export interface IMenuItem {
     name: string;
@@ -46,23 +48,39 @@ export interface IMenuConfig {
 }
 
 const topMenuItems: IMenuItem[] = [
-    { name: "Link 1", href: "/link1",icon: <MdOutlineDesignServices className="text-white h-6 w-6"/> },
-    { name: "Link 2", href: "/link2",icon: <MdOutlineDesignServices className="text-white h-6 w-6"/> },
+    { name: "Facebook", href: "/link1",icon: <FaFacebook className="text-black h-6 w-6"/> },
+    { name: "Instagram", href: "/link1",icon: <FaInstagramSquare className="text-red-400 h-6 w-6"/> },
+    { name: "TikTok", href: "/link1",icon: <FaTiktok className="text-black h-6 w-6"/> },
+    { name: "WhatsApp", href: "/link1",icon: <FaWhatsappSquare className="text-black h-6 w-6"/> },
+    { name: "Phone", href: "/link1",icon: <FaPhone className="text-black h-6 w-6"/> },
+    { name: "Email", href: "/link1",icon: <MdEmail className="text-black h-6 w-6"/> },
+    { name: "Link 2", href: "/link2",icon: <div>Log In</div> },
 ];
 
 const bottomMenuItems: IMenuItem[] = [
     {
         name: "Services",
         href: "/services",
-        icon: <MdOutlineDesignServices className="text-white h-6 w-6"/>,
+        icon: <MdOutlineDesignServices className="text-black h-6 w-6"/>,
         subMenu: [
             { name: "Service 1", href: "/service1" },
             { name: "Service 2", href: "/service2" },
         ],
     },
     {
-        name: "Blog",
-        href: "/blog",
+        name: "Our Work",
+        href: "/portfolio",
+        icon: <MdOutlineDesignServices className="text-black h-6 w-6"/>,
+    },
+    {
+        name: "About Us",
+        icon: <MdOutlineDesignServices className="text-black h-6 w-6"/>,
+        href: "/about",
+    },
+    {
+        name: "About Us",
+        icon: <MdOutlineDesignServices className="text-black h-6 w-6"/>,
+        href: "/about",
     },
 ];
 
@@ -71,23 +89,23 @@ export const menuConfig: IMenuConfig = {
         text: "Cumbia Stack",
         href: "/",
         logoUrl: "path/to/logo/image",
-        defaultTextColor: "text-white",
+        defaultTextColor: "text-black",
         scrolledTextColor: "text-black",
-        defaultBgColor: "bg-gray-800",
-        scrolledBgColor: "bg-white",
+        defaultBgColor: "bg-transparent",
+        scrolledBgColor: "bg-transparent",
     },
     topMenu: {
-        defaultBgColor: "bg-gray-800",
+        defaultBgColor: "bg-transparent",
         scrolledBgColor: "bg-white",
-        defaultTextColor: "text-white",
+        defaultTextColor: "text-black",
         scrolledTextColor: "text-black",
         items: topMenuItems,
     },
     bottomMenu: {
-        defaultBgColor: "bg-blue-500",
+        defaultBgColor: "bg-transparent",
         scrolledBgColor: "bg-white",
-        defaultTextColor: "text-white",
-        scrolledTextColor: "text-black",
+        defaultTextColor: "text-black",
+        scrolledTextColor: "text-blue-500",
         items: bottomMenuItems,
     },
     mobileMenu: {

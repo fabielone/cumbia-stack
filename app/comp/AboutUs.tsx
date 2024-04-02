@@ -17,7 +17,7 @@ export default function AboutUs() {
           </Link>
         </div>
         <div className="w-full md:w-1/2">
-          <img src="[URL of your image]" alt="About Us" className="rounded-lg shadow-lg" />
+          <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="About Us" className="rounded-lg shadow-lg" />
         </div>
       </section>
        );

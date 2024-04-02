@@ -3,13 +3,11 @@ import { Link } from "@remix-run/react";
 import { IoAirplane } from "react-icons/io5";
 
 import AboutUs from "~/comp/AboutUs";
-import Footer from "~/comp/Footer";
 import Hero from "~/comp/Hero";
-import Navbar from "~/comp/Navbar";
 import ServicesOverview from "~/comp/Services";
 import PortfolioSection from "~/comp/Showcase";
 import NewsletterSignUp from "~/comp/Subscribe";
-import TopBanner from "~/comp/TopBanner";
+// import TopBanner from "~/comp/TopBanner";
 import { useOptionalUser } from "~/utils";
 
 export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
@@ -82,8 +80,7 @@ export default function Index() {
   const user = useOptionalUser();
   return (
    <>
-        <TopBanner />
-        <Navbar />
+        {/* <TopBanner /> */}
         <Hero />
         <ServicesOverview services={services} />
         <AboutUs />
@@ -119,7 +116,7 @@ export default function Index() {
               
         
       <NewsletterSignUp />
-    <Footer />
+  
     </>
   );
 }

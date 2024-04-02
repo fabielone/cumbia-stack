@@ -23,8 +23,8 @@ const Navbar: React.FC = () => {
   
 const renderTopMenuItems = () => {
     return menuConfig.topMenu.items.map((item, index) => (
-      <a key={index} href={item.href} className="text-white hover:text-gray-300">
-        {item.name}
+      <a key={index} href={item.href} className="text-white mx-2 hover:text-gray-300">
+        {item.icon}
       </a>
     ));
   };
@@ -65,12 +65,13 @@ const renderTopMenuItems = () => {
  const bottomMenuColors = isScrolled ? menuConfig.bottomMenu.scrolledBgColor+ "" + menuConfig.bottomMenu.scrolledTextColor : menuConfig.bottomMenu.defaultBgColor+" "+menuConfig.bottomMenu.defaultTextColor;
  const logoMenuTextColor = isScrolled ? menuConfig.logo.scrolledTextColor : menuConfig.logo.defaultTextColor;
  const logoMenuBgColor = isScrolled ? menuConfig.logo.scrolledBgColor : menuConfig.logo.defaultBgColor;
+ const hideonScroll = isScrolled ? "hidden" : "";
   return (
     <div className={`sticky top-0 z-50 ${navBgColor}`}>
     {/* Navbar */}
     <div className={`grid grid-cols-8 md:grid-cols-8 text-sm items-center`}>
       {/* Logo Section */}
-      <div className={`relative col-span-1 md:col-span-1 flex items-center space-x-4 ${logoMenuBgColor}`}>
+      <div className={`relative col-span-1 md:col-span-1 animate-fadeIn items-center space-x-4 ${logoMenuBgColor}`}>
         <span className={`font-bold text-lg ${logoMenuTextColor}`}>
           {menuConfig.logo.text}
         </span>
@@ -79,7 +80,7 @@ const renderTopMenuItems = () => {
        {/* Wrapper for Top and Bottom Menus */}
        <div className="col-span-7 md:col-span-7">
           {/* Top Navbar - Hidden on Mobile */}
-          <div className={`hidden md:flex p-1 md:p-1 justify-between ${topMenuColors}`}>
+          <div className={`hidden md:flex p-1 md:p-1  ${topMenuColors} justify-end`}>
             {/* Top Menu Goes Here */}
             {renderTopMenuItems()}
           </div>
